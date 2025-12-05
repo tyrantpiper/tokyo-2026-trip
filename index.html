@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2026 東京返鄉最終章 | 完整行程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sakura: {
+                            100: '#fff0f0',
+                            200: '#ffdbdb',
+                            300: '#ffb7b2', // 櫻花粉
+                            500: '#ff8080',
+                        },
+                        sky: {
+                            100: '#e0f7ff',
+                            200: '#b3ecff',
+                            300: '#a0e9ff', // 天空藍
+                            600: '#0284c7',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* 隱藏滾動條但保留功能 */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .timeline-line {
+            position: absolute;
+            left: 19px;
+            top: 40px;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
+        }
+        .last-item .timeline-line {
+            display: none;
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="text-slate-700 antialiased pb-20">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav shadow-sm border-b border-slate-100">
+        <div class="max-w-3xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div>
+                <h1 class="text-lg font-bold text-slate-800 tracking-wide">2026 東京返鄉最終章</h1>
+                <p class="text-xs text-slate-500">Day 1 - Day 18 完整行程</p>
+            </div>
+            <div class="text-sakura-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Tab Navigation -->
+        <div class="max-w-3xl mx-auto px-2">
+            <div class="flex overflow-x-auto hide-scrollbar space-x-2 py-2" id="dayTabs">
+                <!-- Tabs will be injected here via JS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto px-4 pt-36" id="mainContent">
+        <!-- Content will be injected here via JS -->
+    </main>
+
+    <!-- Floating Action Button for Map -->
+    <a href="https://www.google.com/maps" target="_blank" class="fixed bottom-6 right-6 bg-sky-500 text-white p-4 rounded-full shadow-lg hover:bg-sky-600 transition-all z-40 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 01-1.447-.894L15 7m0 13V7m0 0L9 4" />
+        </svg>
+    </a>
+
+    <script>
+        // --- DATA ---
+        // 為了確保完整性，這裡包含了所有天數的詳細資料
+        const itineraryData = [
+            {
+                day: 1,
+                date: "2/2 (週一)",
+                title: "抵達東京、入住押上",
+                summary: "成田機場 → 押上 (SkyTree)",
+                notices: [
+                    { title: "機場入境", content: "成田機場入境約需 1.5-2 小時，保守抓時間" },
+                    { title: "ACCESS特急", content: "搭 ACCESS特急直達押上，車程 58 分，無須轉車" },
+                    { title: "出站導航", content: "出站走半藏門線 B1 出口（有電梯），過路口就到住宿" },
+                    { title: "宵夜採購", content: "晚上去超市買食材當宵夜 + 明天早餐食材" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥1,200" },
+                    { item: "宵夜", cost: "¥1,000-2,000" }
+                ],
+                tickets: [
+                    "京成 ACCESS特急：¥1,200（單程，刷 IC）",
+                    "都營淺草線：不用買票（ACCESS特急直通）"
+                ],
+                timeline: [
+                    { time: "06:30", loc: "台灣家中出發", note: "確認護照、JCB 卡、行動電源帶了沒" },
+                    { time: "09:12", loc: "烏日站", note: "前往台中火車站" },
+                    { time: "09:55", loc: "國光客運 1860", note: "上車，記得預約，車上補眠" },
+                    { time: "12:00", loc: "桃園機場 T2", note: "直接報到、托運、安檢，之後吃飛機餐即可" },
+                    { time: "14:00", loc: "CI0108 等待登機", note: "輕鬆等候，不特別安排機場用餐" },
+                    { time: "18:30", loc: "成田機場 T2", note: "抵達 (日本時間)，時區 +1 小時" },
+                    { time: "19:30", loc: "入境審查 + 領行李", note: "排隊時間抓寬一點比較安心，預抓 1.5-2 小時出關" },
+                    { time: "20:00", loc: "前往京成線區域", note: "B1F 京成電鐵，買 ACCESS特急車票 約¥1,200" },
+                    { time: "20:07", loc: "搭京成成田 SKYACCESS", note: "ACCESS特急（往西馬込）→ 押上（約 58 分）。無須指定席，直接用 IC 卡刷或買普通車票，不用轉車" },
+                    { time: "21:05", loc: "抵達押上站", note: "關鍵導航：下車後在站內找半藏門線(Z線)的 B1 出口（有電梯），出站後過個路口就到住宿" },
+                    { time: "21:30", loc: "Check-in 住宿", note: "三谷ビル，步行約 2 分鐘" },
+                    { time: "22:00", loc: "附近超市＆便利商店", note: "買沙拉、熟食、便當、飲料回房吃，順便買明天早餐食材。周邊超市四強：まいばすけっと 押上駅前店 (出站正對面)、スーパーイズミ 業平店 (激安)、ライフ セントラルスクエア (大型旗艦店)" },
+                    { time: "23:30", loc: "休息", note: "整理行李，準備明天早起" }
+                ]
+            },
+            {
+                day: 2,
+                date: "2/3 (週二)",
+                title: "豐洲市場、LaLaport、台場",
+                summary: "豐洲市場 → LaLaport → 台場夜景",
+                notices: [
+                    { title: "豐洲市場", content: "7:40 抵達，避開排隊地獄，吃便宜海鮮丼" },
+                    { title: "LaLaport", content: "給足 4.5 小時瘋狂購物" },
+                    { title: "DiverCity", content: "鋼彈 18:00 後會亮燈，記得拍照" },
+                    { title: "海鷗線一日券", content: "買一日券 ¥900 超划算" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥1,340" },
+                    { item: "早餐", cost: "¥2,000" },
+                    { item: "午餐", cost: "¥1,500" },
+                    { item: "晚餐", cost: "¥3,000" }
+                ],
+                tickets: [
+                    "都營淺草線：刷 IC 卡（押上↔新橋 來回 ¥440）",
+                    "海鷗線一日券：¥900（新橋↔市場前↔豐洲↔Big Sight↔台場，無限搭）"
+                ],
+                timeline: [
+                    { time: "06:00", loc: "起床、盥洗", note: "為了避開市場排隊人潮，早點起來，但讓爸媽慢慢準備就好" },
+                    { time: "07:00", loc: "押上站 出發", note: "都營淺草線 A20 押上 → A10 新橋（約 20 分）。直接刷 IC 卡，單程約 ¥220，不用買地鐵一日券" },
+                    { time: "07:25", loc: "新橋站 (海鷗線)", note: "轉乘百合海鷗線 U-01 新橋 → U-14 市場前。在這裡購買「ゆりかもめ一日乗車券」(¥900)，今天海鷗線無限搭" },
+                    { time: "07:40", loc: "豐洲市場", note: "步行約 5 分。7–9 點是第二波用餐人潮，能吃到新鮮貨又不會排到崩潰" },
+                    { time: "07:45", loc: "豐洲市場吃早餐", note: "豐洲市場海鮮丼區 仲家 或 豊洲市場外海鮮丼區。吃便宜好吃的：海鮮丼(¥1,500-2,500) 或仲家(定食)。避開壽司大(要排3-4小時)" },
+                    { time: "09:00", loc: "豐洲市場周邊散步", note: "在市場裡逛逛、看看青果區，順便讓爸媽走走停停休息一下" },
+                    { time: "09:40", loc: "步行前往 LaLaport", note: "步行約 10–12 分。沿路是海邊步道，當散步消食很剛好" },
+                    { time: "10:00", loc: "LaLaport 豐洲", note: "瘋狂購物！家庭向大型 Mall，有 UNIQLO、無印良品、ZARA、H&M、藥妝、BIC CAMERA 等" },
+                    { time: "12:30", loc: "LaLaport 午餐", note: "選擇：えびす大黒（天婦羅定食）/ Eggs 'n Things（早午餐鬆餅）/ 美食廣場" },
+                    { time: "14:30", loc: "LaLaport → 豊洲站", note: "重點導航：走到「U-16 豊洲站」，不是走回市場前" },
+                    { time: "14:45", loc: "豊洲 → 東京 Big Sight", note: "百合海鷗線 U-16 豊洲 → U-11 東京ビッグサイト。用早上買的海鷗線一日券" },
+                    { time: "15:00", loc: "東京 Big Sight 打卡", note: "倒三角建築物，拍幾張照就撤，保留體力給後面台場" },
+                    { time: "15:35", loc: "前往台場", note: "百合海鷗線 U-11 → U-07 台場" },
+                    { time: "15:45", loc: "台場散步＋景點", note: "推薦路線：台場站 → 自由女神像 拍照 → AQUA CITY Odaiba 看彩虹大橋 → 逛幾間店 → 步行約 10 分到 DiverCity" },
+                    { time: "17:30", loc: "DiverCity ＋ 大鋼彈", note: "看實體獨角獸鋼彈、順便逛 UNIQLO、GU、藥妝等，18:00 後鋼彈會亮燈變身，記得錄影" },
+                    { time: "18:30", loc: "台場晚餐", note: "選擇：築地玉寿司 / 台場一丁目商店街（平價拉麵、章魚燒）/ bills (景觀餐廳)" },
+                    { time: "19:30", loc: "台場夜景散步", note: "飯後在海邊走走，看彩虹大橋夜景，讓爸媽舒緩一下腳力" },
+                    { time: "20:00", loc: "台場 → 新橋 → 押上", note: "海鷗線 U-07 台場 → U-01 新橋 → 轉都營淺草線 A10 新橋 → A20 押上" },
+                    { time: "20:45", loc: "押上站 → 住宿", note: "走熟 Day 1 的路線就好" },
+                    { time: "22:00", loc: "休息", note: "結束豐洲＋LaLaport＋台場的一整天" }
+                ]
+            },
+            {
+                day: 3,
+                date: "2/4 (週三)",
+                title: "晴空塔、移動至橫濱",
+                summary: "押上 → 晴空塔 → 橫濱",
+                notices: [
+                    { title: "拖行李逛晴空塔", content: "電梯多不用擔心" },
+                    { title: "Zoff 配眼鏡", content: "30-40 分可取（建議帶台灣度數資料）" },
+                    { title: "押上站交通", content: "搭「京急線直通」車（往浦賀/三崎口/新逗子），不要搭往羽田空港或西馬込" },
+                    { title: "晚上熟悉環境", content: "在住宿周邊熟悉環境，不排橫濱站/百貨" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥760" },
+                    { item: "午餐", cost: "¥3,000" },
+                    { item: "配眼鏡", cost: "¥5,500 起" },
+                    { item: "晚餐", cost: "¥2,000" }
+                ],
+                tickets: ["都營淺草線→京急線直通：刷 IC 卡（押上→戶部 ¥760）"],
+                timeline: [
+                    { time: "07:00", loc: "起床、準備早餐", note: "在住宿煮早餐，善用超市買的生鮮" },
+                    { time: "07:30", loc: "早餐時間", note: "可以去 LIFE 或まいばすけっと買生鮮回來煮" },
+                    { time: "08:30", loc: "整理行李、打掃", note: "把所有東西收好，準備退房拖行李去晴空塔" },
+                    { time: "10:30", loc: "退房 → 晴空塔", note: "步行約 10 分鐘。直接拖著行李走，晴空塔電梯多，不用擔心" },
+                    { time: "11:00", loc: "配眼鏡 Zoff (3F)", note: "快速配鏡，有現貨 30-40 分可取，¥5,500 起。建議帶著台灣的度數資料去，會更快。行李可以放在旁邊，店員不會趕你" },
+                    { time: "12:00", loc: "晴空塔午餐", note: "ひつまぶし名古屋備長 (6F)。名古屋風鰻魚飯三吃，Tabelog 3.48，¥2,500-4,000/人。行李可以放在座位旁邊" },
+                    { time: "13:30", loc: "東京晴空街道 購物", note: "約 2.5 小時輕鬆逛：藥妝、服飾、雜貨、紀念品。拖著行李逛可能有點累，建議「爸媽輪流在咖啡廳顧行李，其他人去逛」或「直接推著走，反正電梯多」" },
+                    { time: "16:00", loc: "晴空塔 → 押上站", note: "拖行李走到都營淺草線月台" },
+                    { time: "16:30", loc: "押上 → 泉岳寺", note: "都營淺草線 A20 押上 → A07 泉岳寺（約 25 分）。⚠️ 關鍵交通細節：要搭「京急線直通」的車（車頭顯示「往浦賀／京急久里浜／三崎口／新逗子」）。❌ 絕對不要搭往羽田空港或西馬込的車。行李放在車廂連結處或座位旁" },
+                    { time: "16:55", loc: "泉岳寺 (同月台繼續坐)", note: "不需下車，都營淺草線直通京急線列車會自動變身為「京急本線」" },
+                    { time: "17:00", loc: "泉岳寺 → 戶部", note: "京急線 KK01 泉岳寺 → KK17 神奈川新町（搭特急）→ 換「普通」車 → KK38 戶部。⚠️ 在神奈川新町站換「普通」車（因為特急不停戶部站）。同月台換乘即可" },
+                    { time: "17:40", loc: "戶部站 → 橫濱住宿", note: "Cozy Nest Yokohama (横浜市西区戸部町)。步行約 10-12 分鐘，距離約 800m。平地好走，拖行李走過去沒問題" },
+                    { time: "17:50", loc: "Check-in 橫濱住宿", note: "放好行李、稍微休息一下、盥洗" },
+                    { time: "18:30", loc: "住宿附近晚餐", note: "步行範圍。首選：揚雫（Yoda）(戶部駅周邊)，橫濱第一炸豬排。備案：在戶部站周邊 或 平沼橋站周邊 找居酒屋、定食屋，體驗在地氛圍" },
+                    { time: "19:30", loc: "住宿周邊散步", note: "散步去附近超市、便利商店踩點，熟悉明天出門的路線。今天不排橫濱站、高島屋、丸井" },
+                    { time: "21:00", loc: "附近超市/便利商店採買", note: "買明天早餐食材、飲料、宵夜。周邊超市三強(基地：橫濱平沼橋)：まいばすけっと 平沼橋駅前店、まいばすけっと 横浜平沼橋店、肉のハナマサ PLUS 西橫浜店 (24H)" },
+                    { time: "22:00", loc: "回住宿休息", note: "第一天在橫濱，早點休息，明天開始探索橫濱周邊景點" }
+                ]
+            },
+            {
+                day: 4,
+                date: "2/5 (週四)",
+                title: "鎌倉一日遊",
+                summary: "鎌倉高校前 → 七里濱 → 長谷 → 鎌倉",
+                notices: [
+                    { title: "交通複雜", content: "平沼橋→橫濱→鎌倉，注意 JR 橫須賀線要搭「往逗子/久里浜」方向" },
+                    { title: "路線反轉", content: "高校前 → 七里濱 → 稻村崎 → 長谷 → 鎌倉（順路不折返）" },
+                    { title: "鎌倉高校前", content: "早上 10:30 先去，人少好拍" },
+                    { title: "御靈神社", content: "隱藏拍攝點，江之電+鳥居同框" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥2,520" },
+                    { item: "江之電券", cost: "¥800" },
+                    { item: "門票", cost: "¥700-1,200" },
+                    { item: "餐飲", cost: "¥4,000-7,500" }
+                ],
+                tickets: [
+                    "相鐵本線：刷 IC 卡（平沼橋↔橫濱 來回 ¥320）",
+                    "JR 橫須賀線：刷 IC 卡（橫濱↔鎌倉 來回 ¥700）",
+                    "江之電一日券：¥800（鎌倉站購買，當日無限搭乘）"
+                ],
+                timeline: [
+                    { time: "07:00", loc: "起床、盥洗", note: "用超市買的食材自煮早餐，慢慢準備" },
+                    { time: "09:30", loc: "住宿 → 平沼橋站", note: "步行約 5 分鐘。平沼橋站 SO02" },
+                    { time: "09:40", loc: "平沼橋 → 橫濱", note: "相鐵本線（約 3 分）¥160。刷 IC 卡，搭「往橫濱」方向，只有 1 站" },
+                    { time: "09:45", loc: "橫濱站換車", note: "關鍵導航：從相鐵線出來後，跟著「JR線」指標走，找 JR 橫須賀線月台（通常是 5-6 號月台）或 JR 湘南新宿線月台" },
+                    { time: "09:50", loc: "橫濱 → 鎌倉", note: "JR 橫須賀線或湘南新宿線（約 25 分）¥350。⚠️ 重要：要搭「往逗子/久里浜」(JO) 或「往逗子」(JS) 方向。❌ 不要搭往東京/品川方向" },
+                    { time: "10:15", loc: "抵達鎌倉站", note: "第一件事：出站後，往「江之電鎌倉站」走，先去江之電鎌倉站售票機買「のりおりくん（一日券）」¥800" },
+                    { time: "10:20", loc: "鎌倉 → 鎌倉高校前", note: "江之電（約 7 分）。搭「往藤澤」方向" },
+                    { time: "10:30", loc: "鎌倉高校前站 拍照", note: "灌籃高手平交道！出站後往海邊走約 30 秒就到。早上人少、光線順光（太陽在背後），拍照最美" },
+                    { time: "11:05", loc: "鎌倉高校前 → 七里濱", note: "江之電（約 2 分，1 站）。繼續搭「往藤澤」方向" },
+                    { time: "11:10", loc: "七里濱站 周邊", note: "① 出站後往海邊走約 3 分鐘到七里濱海岸，看富士山＆江之島。② 午餐選擇：bills 七里濱（世界第一早餐，海景座位）或 珊瑚礁咖哩" },
+                    { time: "12:35", loc: "七里濱 → 稻村崎", note: "江之電（約 3 分）。繼續搭「往藤澤」方向" },
+                    { time: "12:40", loc: "稻村崎站 周邊", note: "出站後往海邊走約 5 分鐘到稻村崎海岸。人少、看富士山最佳點！比七里濱更空曠，拍照無人擋" },
+                    { time: "13:15", loc: "稻村崎 → 長谷", note: "江之電（約 5 分）。搭「往鎌倉」方向（往回坐）" },
+                    { time: "13:20", loc: "長谷站 周邊", note: "重點區域，選 2-3 個去：① 鎌倉大佛（高德院）② 長谷寺（海景觀音）③ 御靈神社（免費，秘境！江之電+鳥居絕景）④ Kaedena 土鍋飯" },
+                    { time: "16:05", loc: "長谷 → 鎌倉", note: "江之電（約 5 分）。搭「往鎌倉」方向" },
+                    { time: "16:10", loc: "鎌倉站 周邊", note: "① 鶴岡八幡宮（出站步行 10 分，神苑牡丹園冬季限定 ¥500）② 小町通商店街（邊走邊吃，買伴手禮，營業到 18:00）" },
+                    { time: "18:00", loc: "鎌倉晚餐", note: "選擇：① 鎌倉釜飯 Kamakama（吻仔魚＆海膽釜飯）② 小町通小吃吃到飽（省錢方案）③ 鎌倉站周邊定食屋" },
+                    { time: "19:00", loc: "鎌倉超市巡禮", note: "紀之國屋鎌倉店 (高級)、東急超市鎌倉店 (平價)、Yamaka 鎌倉店 (在地)。買水果、熟食" },
+                    { time: "22:00", loc: "鎌倉 → 橫濱", note: "JR 橫須賀線（約 25 分）¥350。搭「往東京/品川」方向" },
+                    { time: "22:30", loc: "橫濱 → 平沼橋", note: "相鐵本線（約 3 分）¥160" },
+                    { time: "22:40", loc: "回住宿", note: "整理戰利品、洗澡、準備明天行程" }
+                ]
+            },
+            {
+                day: 5,
+                date: "2/6 (週五)",
+                title: "橫濱港未來一日遊",
+                summary: "港未來一日券 → 紅磚倉庫 → 鋼彈 → 纜車",
+                notices: [
+                    { title: "港未來一日券", content: "買港未來一日券 ¥460，無限搭乘港未來線" },
+                    { title: "冬季限定", content: "港未來燈飾、紅磚倉庫聖誕市集" },
+                    { title: "graniph", content: "港未來區，獨特色彩繽紛印花T恤" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥460" },
+                    { item: "吃到飽", cost: "¥4,000" },
+                    { item: "購物", cost: "依個人預算" }
+                ],
+                tickets: ["港未來線一日券：¥460（元町中華街↔橫濱站 無限搭乘）"],
+                timeline: [
+                    { time: "07:00", loc: "起床、早餐", note: "用昨天買的食材自煮早餐" },
+                    { time: "09:30", loc: "住宿 → 平沼橋", note: "步行約 5 分鐘" },
+                    { time: "09:40", loc: "平沼橋 → 橫濱", note: "相鐵本線 ¥160。搭「往橫濱」方向" },
+                    { time: "09:45", loc: "橫濱站換車", note: "從相鐵線出來後，跟著「港未來線」指標走" },
+                    { time: "09:50", loc: "橫濱 → 大通", note: "港未來線 ¥460。刷港未來一日券，單程。搭「往元町中華街」方向" },
+                    { time: "10:00", loc: "Bluff Bakery 大通店", note: "港未來名店，胡蘿蔔蛋糕超人氣！" },
+                    { time: "10:30", loc: "大通 → 元町中華街", note: "港未來線。刷港未來一日券。搭「往元町中華街」方向" },
+                    { time: "10:35", loc: "Norizo", note: "海苔火腿捲、肉桂捲超推薦！人氣小巷麵包店" },
+                    { time: "11:00", loc: "元町中華街", note: "邊走邊吃，買伴手禮，營業到 18:00" },
+                    { time: "11:30", loc: "Elysee 生雞蛋布丁", note: "人氣必吃！Tabelog 3.57" },
+                    { time: "12:30", loc: "Harbor Kitchen 吃到飽", note: "橫濱凱悅酒店。海景座位，約 ¥4,000/人，需預約" },
+                    { time: "14:00", loc: "山下公園", note: "看海、看冰川丸號" },
+                    { time: "14:30", loc: "象鼻公園", note: "看海、看日本遊輪，很美很難忘" },
+                    { time: "15:00", loc: "橫濱紅磚倉庫", note: "冬季限定聖誕市集，德國風美食、燈飾" },
+                    { time: "15:30", loc: "Yokohama World Porters", note: "購物、餐飲、夏威夷村。⭐ Day 5 必逛：graniph 橫濱店 (找 JoJo 聯名)" },
+                    { time: "20:30", loc: "OK超市 港未來店", note: "免稅部門，需出示護照，平價超市" },
+                    { time: "21:30", loc: "新高島 → 橫濱", note: "港未來線。刷港未來一日券" },
+                    { time: "21:35", loc: "橫濱 → 平沼橋", note: "相鐵本線 ¥160" },
+                    { time: "21:40", loc: "回家休息", note: "整理戰利品" }
+                ]
+            },
+            {
+                day: 6,
+                date: "2/7 (週六)",
+                title: "橫濱市場 + 江之島",
+                summary: "市場海鮮 → 江之島 → 湘南寶石點燈",
+                notices: [
+                    { title: "市場限定", content: "每週六 8:00-10:00 限定開放，務必準時" },
+                    { title: "現金準備", content: "至少 ¥30,000（買三餐份量魚貨）" },
+                    { title: "湘南單軌", content: "懸掛式電車，務必體驗！" },
+                    { title: "點燈活動", content: "湘南の宝石（冬季限定），18:00-18:30 最美" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥2,980" },
+                    { item: "市場魚貨", cost: "¥13,000-30,000" },
+                    { item: "江之島套票", cost: "¥1,100" },
+                    { item: "小吃", cost: "¥350-750" }
+                ],
+                tickets: [
+                    "橫濱市營巴士 48 系統：¥220 × 2 = ¥440",
+                    "JR 橫須賀線：¥240 × 2 = ¥480",
+                    "湘南單軌電車：¥320 × 2 = ¥640",
+                    "江之島套票 エノスパ：¥1,100"
+                ],
+                timeline: [
+                    { time: "06:30", loc: "準備出門", note: "確認現金 ¥30,000+、保冷袋+冰袋、穿好走的鞋" },
+                    { time: "07:00", loc: "住宿 → 平沼橋", note: "步行約 5 分鐘" },
+                    { time: "07:05", loc: "平沼橋 → 橫濱", note: "相鐵本線 ¥160" },
+                    { time: "07:10", loc: "橫濱站 → 西口巴士站", note: "從相鐵線出來，跟著「西口」指標走，到 4 號乘車處" },
+                    { time: "07:35", loc: "搭 48 系統巴士", note: "橫濱市營巴士 48 系統 (¥220)。⚠️ 時刻表會改點，出發前確認" },
+                    { time: "08:00", loc: "抵達 橫濱中央批發市場", note: "水產仲卸棟 8:00-10:00 開放！攻略：本鮪大トロ、海膽、干貝、寒鰤。可以直接問「寿司飯ありますか？」" },
+                    { time: "09:45", loc: "市場 → 橫濱站 → 住宿", note: "搭巴士回橫濱站，轉相鐵回平沼橋。把魚貨帶回去冰，保冷袋記得封好" },
+                    { time: "11:00", loc: "料理時間", note: "整理魚貨、分類冰箱。煮飯 + 準備午餐 (生魚片大餐)" },
+                    { time: "12:30", loc: "豪華海鮮丼午餐", note: "慢慢享用，吃 7-8 分飽就好" },
+                    { time: "14:00", loc: "出發江之島", note: "平沼橋 → 橫濱 → 大船 (JR橫須賀線 ¥240)" },
+                    { time: "14:30", loc: "大船站 換車", note: "出 JR 閘口，跟著「湘南モノレール」指標走" },
+                    { time: "14:35", loc: "大船 → 湘南深澤", note: "湘南單軌電車 ¥280。懸掛式電車！" },
+                    { time: "14:45", loc: "湘南深澤站 拍照", note: "站台下方的步道，仰拍懸掛列車經過，超酷！" },
+                    { time: "15:05", loc: "湘南深澤 → 湘南江之島", note: "繼續搭單軌電車 ¥40 (補票/同張票)" },
+                    { time: "15:15", loc: "步行過江之島大橋", note: "海風很舒服，邊走邊拍照" },
+                    { time: "15:30", loc: "江之島商店街", note: "必吃：章魚仙貝 ¥350" },
+                    { time: "15:50", loc: "購買江之島套票", note: "エノスパ ¥1,100 版本 (含手扶梯、花園、燈塔)" },
+                    { time: "16:00", loc: "江島神社 + 手扶梯", note: "搭手扶梯上山，省體力" },
+                    { time: "16:50", loc: "江之島瞭望燈塔", note: "重點！ 16:50 上燈塔，等 17:15 日落。看富士山剪影、夕陽" },
+                    { time: "17:15", loc: "看日落 + 夜景", note: "日落後燈塔會點燈" },
+                    { time: "18:00", loc: "花園點燈 (湘南寶石)", note: "冬季限定，超美！" },
+                    { time: "18:30", loc: "下山", note: "沿途欣賞夜景" },
+                    { time: "19:00", loc: "商店街輕食", note: "吻仔魚包子或霜淇淋。⚠️ 留肚子回家吃海鮮" },
+                    { time: "20:00", loc: "江之島 → 大船 → 橫濱 → 平沼橋", note: "湘南單軌 → JR → 相鐵" },
+                    { time: "21:30", loc: "宵夜時間", note: "鯖魚鹽燒、剩餘刺身、魚頭湯" }
+                ]
+            },
+            {
+                day: 7,
+                date: "2/8 (週日)",
+                title: "移動日：橫濱 → 御殿場",
+                summary: "橫濱 → 國府津 → 御殿場 → Outlet",
+                notices: [
+                    { title: "JR 中央線", content: "需在國府津轉乘" },
+                    { title: "東橫INN 預約", content: "御殿場站乙女口接駁車需提前預約" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥2,050" },
+                    { item: "超市購物", cost: "¥5,000-6,500" }
+                ],
+                tickets: ["JR 橫濱→御殿場：¥2,050"],
+                timeline: [
+                    { time: "07:00", loc: "起床、早餐", note: "清冰箱料理" },
+                    { time: "09:30", loc: "前往橫濱站", note: "步行或相鐵" },
+                    { time: "10:20", loc: "橫濱站 JR 票口", note: "買「橫濱→御殿場」車票 ¥2,050" },
+                    { time: "11:00", loc: "橫濱 → 國府津", note: "JR 東海道線 (特急) 約 50 分" },
+                    { time: "11:50", loc: "國府津站 轉乘", note: "月台轉乘，往御殿場方向" },
+                    { time: "12:20", loc: "國府津 → 御殿場", note: "JR 御殿場線 (普通車) 約 70 分" },
+                    { time: "13:30", loc: "抵達御殿場站", note: "CB10 御殿場站" },
+                    { time: "13:30", loc: "前往東橫INN", note: "步行 1-2 分，就在車站正前方" },
+                    { time: "13:40", loc: "快速 Check-in", note: "寄放行李、詢問接駁車" },
+                    { time: "14:00", loc: "前往 Premium Outlets", note: "搭東橫INN接駁車或免費接駁巴士" },
+                    { time: "14:00", loc: "御殿場 Premium Outlets", note: "Outlet 開到 19:00。先逛逛，主要戰力放明天" },
+                    { time: "17:00", loc: "超市採買", note: "MaxValu 東田中店，步行 5 分。買晚餐、明天早餐" },
+                    { time: "18:00", loc: "房間晚餐", note: "超市戰利品" },
+                    { time: "19:00", loc: "休息", note: "準備明天的 Outlet Day" }
+                ]
+            },
+            {
+                day: 8,
+                date: "2/9 (週一)",
+                title: "御殿場 Outlets 瘋狂購物",
+                summary: "全日 Outlet 血拼",
+                notices: [
+                    { title: "Outlet 營業", content: "10:00-19:00（最後入場 18:30）" },
+                    { title: "免費接駁車", content: "御殿場駅乙女口 2 號月台，15 分鐘一班" },
+                    { title: "退稅服務", content: "記得帶護照，買滿 ¥5,000 可退稅" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥0 (免費接駁)" },
+                    { item: "購物", cost: "依個人預算" }
+                ],
+                tickets: ["免費接駁車"],
+                timeline: [
+                    { time: "06:30", loc: "早餐", note: "吃飽才有體力血拼！日式＋西式自助" },
+                    { time: "09:30", loc: "御殿場站", note: "步行 1-2 分" },
+                    { time: "09:35", loc: "搭免費接駁車", note: "乙女口 2 號月台。⚠️ 重點：去「乙女口」，不是富士山口！" },
+                    { time: "10:00", loc: "抵達 Outlet", note: "開始血拼！" },
+                    { time: "10:00", loc: "第一輪購物", note: "推薦區域：BEAMS、UNIQLO、Nike、Adidas、Coach、Levi's" },
+                    { time: "12:00", loc: "Outlet 午餐", note: "美食廣場（拉麵、丼飯）或 沼津魚市場（海鮮丼）" },
+                    { time: "13:00", loc: "第二輪購物", note: "瘋狂掃貨時間！記得 15:00 後去退稅櫃檯比較不用排隊" },
+                    { time: "17:30", loc: "最後補貨＋拍照", note: "在 Outlet 展望台拍富士山夕陽！" },
+                    { time: "18:00", loc: "搭接駁車回車站", note: "⚠️ 注意：18:30 是最後一班，不要錯過！" },
+                    { time: "18:30", loc: "超市採買", note: "MaxValu 東田中店。買晚餐、明天早餐" },
+                    { time: "19:00", loc: "回東橫INN", note: "在房間吃晚餐" },
+                    { time: "20:00", loc: "打包行李", note: "準備明天移動到河口湖" }
+                ]
+            },
+            {
+                day: 9,
+                date: "2/10 (週二)",
+                title: "移動至河口湖＋景點探索",
+                summary: "御殿場 → 河口湖 → 天上山纜車",
+                notices: [
+                    { title: "免費接駁車", content: "御殿場東橫INN → 河口湖東橫INN，11:00 出發（需預約）" },
+                    { title: "展望台", content: "御殿場駅屋頂可拍富士山" },
+                    { title: "周遊巴士", content: "紅線＋綠線一日券 ¥1,500" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥1,500" },
+                    { item: "景點門票", cost: "¥1,000-2,000" }
+                ],
+                tickets: ["河口湖周遊巴士一日券：¥1,500"],
+                timeline: [
+                    { time: "06:30", loc: "早餐", note: "最後一次吃御殿場飯店早餐" },
+                    { time: "09:00", loc: "退房", note: "行李寄放櫃檯，等 11:00 接駁車" },
+                    { time: "10:00", loc: "御殿場駅逛逛", note: "乙女口周邊紀念品店" },
+                    { time: "10:30", loc: "箱根觀光案內所", note: "屋頂展望台拍富士山！免費！" },
+                    { time: "10:50", loc: "回飯店拿行李", note: "準備搭車" },
+                    { time: "11:00", loc: "搭免費接駁車", note: "東橫INN 御殿場 → 河口湖。⚠️ 需提前預約！車程約 45 分鐘" },
+                    { time: "11:45", loc: "抵達河口湖東橫INN", note: "先寄放行李（正式入住 15:00 後）" },
+                    { time: "12:00", loc: "前往河口湖站", note: "搭免費接駁車（12:00 發車）" },
+                    { time: "12:15", loc: "購買周遊券", note: "河口湖站買「周遊巴士一日券」¥1,500" },
+                    { time: "12:30", loc: "午餐", note: "ほうとう不動 河口湖北本店 (餺飥麵) 或 小作" },
+                    { time: "13:30", loc: "天上山纜車", note: "搭周遊巴士紅線到「遊覧船・纜車入口」。纜車來回 ¥900" },
+                    { time: "14:00", loc: "天上山公園", note: "必去！看富士山＋河口湖全景。狸貓茶屋、兔子神社" },
+                    { time: "15:30", loc: "音樂盒之森", note: "周遊巴士紅線到「音樂盒之森美術館」。歐風花園，拍照超美" },
+                    { time: "17:00", loc: "回河口湖站", note: "搭周遊巴士" },
+                    { time: "17:30", loc: "回飯店", note: "搭東橫INN接駁車 (17:30 發車)" },
+                    { time: "18:30", loc: "超市採買＋晚餐", note: "MaxValu 富士河口湖店。買晚餐回飯店吃" }
+                ]
+            },
+            {
+                day: 10,
+                date: "2/11 (週三)",
+                title: "忍野八海深度遊＋入住別墅",
+                summary: "忍野八海 → 淺間神社 → 入住別墅",
+                notices: [
+                    { title: "正確走法", content: "先搭接駁車到「河口湖站」，再轉搭路線巴士去忍野八海" },
+                    { title: "民宿接送", content: "需與房東約好時間，建議約在河口湖站" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥1,200" },
+                    { item: "晚餐(和牛)", cost: "¥3,000-5,000" }
+                ],
+                tickets: ["巴士單程：約 ¥560"],
+                timeline: [
+                    { time: "06:30", loc: "早餐", note: "認真吃飽！" },
+                    { time: "09:00", loc: "退房", note: "行李寄放櫃檯" },
+                    { time: "09:30", loc: "前往河口湖站", note: "飯店接駁車 (09:30 有一班，需確認)" },
+                    { time: "09:45", loc: "買票等車", note: "河口湖站 6號月台。買往「忍野八海」的票" },
+                    { time: "10:00", loc: "搭巴士", note: "富士急行巴士（往御殿場/山中湖方向），約 30 分" },
+                    { time: "10:30", loc: "忍野八海", note: "下車站：「忍野八海」或「大橋」。必看：湧池、鏡池(逆富士)、中池(吃烤魚)、底拔池" },
+                    { time: "12:30", loc: "午餐", note: "池本茶屋 (蕎麥麵、烤岩魚)" },
+                    { time: "13:30", loc: "忍野八海淺間神社", note: "人少清幽，值得一走" },
+                    { time: "14:15", loc: "回河口湖", note: "搭巴士回河口湖站" },
+                    { time: "15:00", loc: "回東橫INN拿行李", note: "搭免費接駁車" },
+                    { time: "15:30", loc: "民宿主人接送", note: "⚠️ 關鍵！提前用 Booking/Airbnb 訊息跟房東確認" },
+                    { time: "15:45", loc: "Check-in 別墅", note: "貸別荘ウサギの郷 (Bunny Villa)。獨棟別墅！有廚房、花園" },
+                    { time: "17:00", loc: "OGINO 超市大採購", note: "就在隔壁！買和牛、水果、熟食。今晚別墅晚餐趴！" },
+                    { time: "18:00", loc: "別墅豪華晚餐", note: "煎和牛、火鍋、紅酒、草莓" }
+                ]
+            },
+            {
+                day: 11,
+                date: "2/12 (週四)",
+                title: "河口湖西湖深度遊 / 悠閒日",
+                summary: "懷舊合掌村＋西湖療癒之旅",
+                budget: [
+                    { item: "交通", cost: "¥1,500" },
+                    { item: "午餐", cost: "¥1,500-2,500" }
+                ],
+                tickets: ["周遊巴士綠線車票"],
+                timeline: [
+                    { time: "08:30", loc: "民宿早餐", note: "自煮昨天買的牛奶、麵包" },
+                    { time: "09:30", loc: "步行至河口湖站", note: "約 15-20 分。早晨散步" },
+                    { time: "10:10", loc: "搭周遊巴士綠線", note: "往「西湖癒しの里根場」" },
+                    { time: "11:00", loc: "西湖療癒之鄉根場", note: "必去！像合掌村一樣的茅草屋聚落，背景是富士山。可以穿武士服/和服拍照" },
+                    { time: "13:00", loc: "根場午餐", note: "當地餐廳吃蕎麥麵或烤魚" },
+                    { time: "14:10", loc: "大石公園", note: "搭巴士回程順路去。視季節而定，看富士山最經典" },
+                    { time: "15:00", loc: "河口湖湖畔散步", note: "看逆富士" },
+                    { time: "16:30", loc: "超市補貨", note: "OGINO 河口湖店。補明天的食材" },
+                    { time: "18:00", loc: "民宿晚餐", note: "自煮。把昨天沒吃完的和牛煎一煎" },
+                    { time: "20:30", loc: "泡澡、聊天", note: "享受獨棟別墅的寧靜夜晚" }
+                ]
+            },
+            {
+                day: 12,
+                date: "2/13 (週五)",
+                title: "天上山登山＋富士眺望之湯",
+                summary: "溫泉豪華日",
+                budget: [
+                    { item: "溫泉", cost: "¥1,500" },
+                    { item: "交通", cost: "¥1,500" }
+                ],
+                timeline: [
+                    { time: "08:00", loc: "民宿早餐", note: "清冰箱大作戰 Part 1" },
+                    { time: "09:00", loc: "前往河口湖站", note: "慢慢散步去車站" },
+                    { time: "09:30", loc: "天上山纜車", note: "沿著湖邊走去搭纜車" },
+                    { time: "10:00", loc: "天上山公園", note: "纜車單程 ¥500。推薦玩法：搭纜車上山，走路下山（約 40 分，經過繡球花步道）" },
+                    { time: "11:30", loc: "午餐", note: "餺飥麵或天婦羅" },
+                    { time: "13:00", loc: "前往 富士眺望之湯", note: "搭免費接駁車（⚠️ 務必提前上網預約 13:00 的車！）" },
+                    { time: "13:30", loc: "富士眺望之湯 YURARI", note: "露天風呂看富士山！泡完湯吃霜淇淋、喝牛奶，在休息區躺著看富士山發呆" },
+                    { time: "17:30", loc: "回河口湖站", note: "搭免費接駁車" },
+                    { time: "18:00", loc: "超市最後採購", note: "OGINO。最後一波特價搶購！" },
+                    { time: "19:00", loc: "民宿晚餐", note: "清冰箱料理。超市熟食＋剩下的食材" }
+                ]
+            },
+            {
+                day: 13,
+                date: "2/14 (週六)",
+                title: "移動日：河口湖→大月→東京錦糸町",
+                summary: "河口湖 → 大月 → 新宿 → 錦糸町",
+                notices: [
+                    { title: "接駁車", content: "東橫INN接駁車提前預約！ 12:30-13:05 這班車一定要搭上" },
+                    { title: "大月轉乘", content: "只有 10 分鐘轉乘時間，上廁所、買水要快" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥1,520" },
+                    { item: "超市購物", cost: "¥2,000" }
+                ],
+                tickets: ["JR 中央線特急：需買特急券"],
+                timeline: [
+                    { time: "08:00", loc: "民宿早餐", note: "清空冰箱，把剩下的牛奶、雞蛋吃完" },
+                    { time: "09:30", loc: "退房", note: "請民宿老闆載你們去「河口湖東橫INN」（寄放行李）" },
+                    { time: "10:00", loc: "抵達東橫INN", note: "寄放行李或在大廳顧行李" },
+                    { time: "10:10", loc: "大池公園", note: "就在飯店對面！最後一次看河口湖富士山，拍大合照" },
+                    { time: "12:30", loc: "搭接駁車 → 大月站", note: "免費接駁車。12:30 準時發車，務必提前 10 分鐘等候。車程約 35 分" },
+                    { time: "13:05", loc: "抵達 JR 大月站", note: "下車點通常在車站前圓環" },
+                    { time: "13:15", loc: "大月站 轉乘", note: "只有 10 分鐘！直接進月台等車" },
+                    { time: "13:15", loc: "JR 中央線特急", note: "特急 Kaiji / Azusa。搭 13:15 發車的特急（約 1 小時到新宿）。記得先買好票或刷 IC 卡+買特急券" },
+                    { time: "14:20", loc: "抵達 JR 新宿站", note: "站內轉乘。轉乘 JR 中央・總武線（黃色車廂）往千葉方向" },
+                    { time: "14:30", loc: "新宿 → 錦糸町", note: "JR 總武線，約 20-25 分鐘" },
+                    { time: "15:00", loc: "抵達錦糸町、入住", note: "SkyTree-402。走北口出來，經過錦糸公園就到住宿了" },
+                    { time: "16:30", loc: "錦糸町北口 購物", note: "Arcakit (UNIQLO最大級、GU、大創)、Olinas (Nitori、Kasumi超市)" },
+                    { time: "19:00", loc: "晚餐＋超市採買", note: "Life 錦糸町店 (B1)。Life 超市的熟食區超強！買晚餐回民宿吃" }
+                ]
+            },
+            {
+                day: 14,
+                date: "2/15 (週日)",
+                title: "澀谷瘋狂逛街 + 潮流美食巡禮",
+                summary: "新宿 → 澀谷 (PARCO, MIYASHITA PARK)",
+                notices: [
+                    { title: "Outlet", content: "MIYASHITA PARK" },
+                    { title: "潮流聖地", content: "PARCO 6F（任天堂、寶可夢旗艦店）" },
+                    { title: "必買", content: "graniph JoJo 聯名補購" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥170" },
+                    { item: "午餐", cost: "¥1,500" }
+                ],
+                timeline: [
+                    { time: "08:00", loc: "民宿早餐", note: "在 SkyTree-402 吃簡單早餐" },
+                    { time: "10:10", loc: "錦糸町 → 新宿", note: "JR 總武線，約 20 分" },
+                    { time: "10:30", loc: "新宿 → 澀谷", note: "JR 山手線，3 站超快" },
+                    { time: "11:00", loc: "BEAMS JAPAN (新宿)", note: "補購 XT Whisper。 ⭐ Day 14 追加任務：如果 Day 15 沒買到 XT Whisper，這裡是最後機會！" },
+                    { time: "12:00", loc: "澀谷午餐", note: "極味や 挽肉と米。推薦：① 極味や（DIY 鐵板漢堡排）② 挽肉と米（炭烤漢堡排，需早上拚整理券）" },
+                    { time: "13:30", loc: "澀谷補漏逛街", note: "MIYASHITA PARK、澀谷 PARCO。重點：graniph 澀谷 PARCO 店 (確認 JoJo 聯名)、Nintendo Tokyo、Pokémon Center" },
+                    { time: "17:00", loc: "澀谷晚餐", note: "推薦：Ushigoro Bambina (A5 黑毛和牛燒肉) 或 澀谷橫丁 (居酒屋)" },
+                    { time: "18:00", loc: "最後逛街補漏", note: "MEGA 唐吉訶德 澀谷本店、LoFt" },
+                    { time: "20:00", loc: "澀谷 → 錦糸町", note: "JR 山手線 + 總武線" },
+                    { time: "21:00", loc: "回民宿休息", note: "明天是最後一天！" }
+                ]
+            },
+            {
+                day: 15,
+                date: "2/16 (週一)",
+                title: "新宿澀谷最終補完 + 潮流美食",
+                summary: "新宿 (Lumine Est) → BEAMS → HARBS",
+                notices: [
+                    { title: "必買目標", content: "graniph x JoJo 聯名、Salomon XT-Whisper" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥170-340" },
+                    { item: "午餐", cost: "¥1,200-1,500" }
+                ],
+                timeline: [
+                    { time: "08:00", loc: "民宿早餐", note: "最後在 SkyTree-402 吃自煮早餐" },
+                    { time: "09:30", loc: "錦糸町 → 新宿", note: "JR 總武線。行李寄放新宿站南口大型置物櫃 (¥300-500)" },
+                    { time: "10:30", loc: "BEAMS JAPAN (新宿)", note: "首站搶鞋！11:00 開門前先到，一開門直衝櫃台問「XT Whisper」" },
+                    { time: "11:00", loc: "Lumine Est 新宿", note: "搶 JoJo！直上 5F graniph。買完順便逛 6F 潮流男裝" },
+                    { time: "12:00", loc: "午餐：新宿平價美食", note: "豚珍館 (最強炸豬排) 或 烏龍麵 慎" },
+                    { time: "13:30", loc: "新宿 → 澀谷", note: "JR 山手線" },
+                    { time: "14:00", loc: "澀谷補漏", note: "Shibuya Sky、MEGA 唐吉訶德、LoFt" },
+                    { time: "17:00", loc: "澀谷 → 新宿", note: "JR 山手線。回新宿拿行李" },
+                    { time: "18:00", loc: "晚餐：新宿在地必吃", note: "新宿 回憶橫丁 鳥貴族 (串燒居酒屋)" },
+                    { time: "20:00", loc: "新宿 → 錦糸町", note: "JR 總武線，回民宿" }
+                ]
+            },
+            {
+                day: 16,
+                date: "2/17 (週二)",
+                title: "從錦糸町移動至藏前 + 上野燒肉大餐",
+                summary: "錦糸町 → 藏前 → 上野燒肉 → 藥妝",
+                notices: [
+                    { title: "燒肉預約", content: "必須提前預約！肉屋的台所 上野公園前店，平日週二 12:00-14:00 營業" },
+                    { title: "飯店移動", content: "錦糸町 → 藏前（一直線，不折返），寄放大行李輕裝上陣" },
+                    { title: "時間緊湊", content: "11:00 退房 → 12:00 到燒肉店，只有 1 小時，務必準時" },
+                    { title: "藥妝掃貨", content: "大國 + SUGI + Kowa，營業時間都到 20:30+" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥380" },
+                    { item: "早餐", cost: "¥1,000-2,000" },
+                    { item: "燒肉", cost: "¥6,000-8,000" },
+                    { item: "藥妝", cost: "¥3,000-5,000" }
+                ],
+                tickets: [
+                    "JR 總武線：¥170 (錦糸町 → 東日本橋)",
+                    "都營淺草線：¥210 (東日本橋 → 藏前)",
+                    "都營淺草線：¥210 (上野 → 藏前)"
+                ],
+                timeline: [
+                    { time: "08:00", loc: "SkyTree-402 民宿", note: "吃簡單早餐（生鮮、麵包、雞蛋），不用吃太飽，留肚子給燒肉" },
+                    { time: "10:00", loc: "民宿整理退房", note: "Ryan 筆記：① 準備 2 個大行李箱 ② 一個放東橫INN（藏前），一個帶去羽田 ③ 手提行李帶著走 ④ 檢查沒有遺漏東西" },
+                    { time: "11:00", loc: "錦糸町站 出發", note: "步行 1 分鐘。拖著手提行李去 JR 站" },
+                    { time: "11:00", loc: "錦糸町 → 東日本橋", note: "JR 總武線（往千葉方向）。只有 2 站，超快，約 8 分鐘" },
+                    { time: "11:15", loc: "東日本橋 → 藏前", note: "都營淺草線。只有 1 站，約 4 分鐘" },
+                    { time: "11:35", loc: "東橫INN 藏前淺草 2 號店", note: "Check-in + 寄放大行李。⭐ 重點：帶著大行李直接進飯店，在前台寄放。領房卡、拿手提行李，輕裝上陣去燒肉" },
+                    { time: "11:50", loc: "前往燒肉店", note: "步行約 8-10 分。⚠️ 務必提前 5 分鐘到！" },
+                    { time: "12:00", loc: "肉屋の台所 上野公園前店", note: "和牛燒肉吃到飽！預約必須！Tabelog 3.65。推薦：A5 黑毛和牛、內臟、牛舌" },
+                    { time: "14:00", loc: "步行至阿美橫町", note: "步行約 3-5 分，消化一下" },
+                    { time: "14:15", loc: "阿美橫町 藥妝掃貨", note: "大國藥局、SUGI 藥局、Kowa 藥妝。推薦：感冒藥、胃腸藥、眼藥水、蒸氣眼罩" },
+                    { time: "15:30", loc: "多慶屋", note: "紫色建築。3F 是日用雜貨天堂：毛巾、廚具、文具。營業到 20:30" },
+                    { time: "16:00", loc: "二木菓子 上野店", note: "日本全國零食應有盡有！買伴手禮好地方" },
+                    { time: "16:30", loc: "回東橫INN", note: "步行 5 分 + 都營淺草線 1 站，或直接走路約 15-20 分" },
+                    { time: "16:50", loc: "正式 Check-in", note: "領房卡、拿行李上樓、盥洗" },
+                    { time: "17:30", loc: "房間休息", note: "吃了 2 小時燒肉，好好躺著消化" },
+                    { time: "18:30", loc: "晚餐：清淡一點", note: "藏前周邊居酒屋或食堂。推薦：清湯烏龍麵、雜煮、親子丼。讓腸胃休息" },
+                    { time: "20:00", loc: "回飯店整理", note: "整理行李、檢查明天行程" },
+                    { time: "21:00", loc: "睡覺", note: "Day 17 要早起！" }
+                ]
+            },
+            {
+                day: 17,
+                date: "2/18 (週三)",
+                title: "秋葉原瘋狂購物 + 前往羽田機場",
+                summary: "秋葉原 4.5 小時掃貨 → 羽田機場",
+                notices: [
+                    { title: "秋葉原購物", content: "4.5 小時瘋狂掃貨（10:20-14:30）" },
+                    { title: "羽田抵達", content: "16:00-23:38 待機免稅店和 JCB 貴賓室" },
+                    { title: "末班車", content: "23:38 末班京急線進羽田，一坐進宿舍或膠囊旅館" },
+                    { title: "退稅護照", content: "買滿 ¥5,000 可退稅，記得帶護照" }
+                ],
+                budget: [
+                    { item: "交通", cost: "¥420" },
+                    { item: "購物", cost: "¥5,000-15,000" },
+                    { item: "免稅店", cost: "¥3,000-8,000" }
+                ],
+                tickets: [
+                    "都營淺草線：¥210 (藏前 → 秋葉原)",
+                    "京急線：¥1,050 (秋葉原/市谷 → 羽田機場)"
+                ],
+                timeline: [
+                    { time: "06:30", loc: "東橫INN 早餐", note: "飯店自助。⭐ 最後一次日本早餐！吃飽飽給整天能量" },
+                    { time: "09:00", loc: "整理行李、退房", note: "① 退房 ② 拿寄放的大行李 ③ 整理好兩個行李箱 ④ 帶上手提行李" },
+                    { time: "09:30", loc: "前往藏前站", note: "步行 1 分。拖著行李走" },
+                    { time: "09:40", loc: "藏前 → 秋葉原", note: "都營淺草線 A12 蔵前 → A09 秋葉原。只需 3 站，5-7 分鐘" },
+                    { time: "10:00", loc: "秋葉原站 寄放行李", note: "找大型置物櫃 (¥600-800)。放下 2 個行李箱，輕裝上陣購物" },
+                    { time: "10:20", loc: "秋葉原瘋狂購物", note: "4.5 小時戰鬥清單：① Yodobashi Camera (遊戲、家電) ② Bic Camera ③ Don Quijote (雜貨)。**記得帶護照退稅！**" },
+                    { time: "14:30", loc: "秋葉原站 拿行李", note: "從置物櫃拿行李，整理戰利品" },
+                    { time: "14:50", loc: "秋葉原 → 羽田機場", note: "路線選擇：① 淺草線直通京急線（最快） ② 或在日本橋換乘京急線。車程約 30-40 分" },
+                    { time: "16:00", loc: "羽田機場", note: "長達 7.5 小時免稅店扎營！16:00 Check-in 行李。17:00 JCB 貴賓室休息。19:00 逛免稅店。23:00 吃晚餐" },
+                    { time: "23:38", loc: "搭末班京急線", note: "⚠️ 這班車一坐進機場宿舍或膠囊旅館 (建議羽田國際航廈 1 樓有膠囊旅館)" }
+                ]
+            },
+            {
+                day: 18,
+                date: "2/19 (週四)",
+                title: "回家日",
+                summary: "羽田 → 松山 → 台中",
+                notices: [
+                    { title: "航班時間", content: "CI0223 羽田 07:55 → 台北松山 10:55" },
+                    { title: "早起時間", content: "04:00-05:00 起床，6:00 前進航廈" }
+                ],
+                budget: [
+                    { item: "住宿", cost: "¥3,000-5,000" },
+                    { item: "客運", cost: "¥400" },
+                    { item: "計程車", cost: "¥150-200" }
+                ],
+                timeline: [
+                    { time: "00:20", loc: "膠囊旅館 睡眠", note: "就睡 4 小時，設好鬧鐘 04:00 起床" },
+                    { time: "04:00", loc: "起床、盥洗", note: "洗臉刷牙換衣服" },
+                    { time: "04:30", loc: "簡單早餐", note: "便利商店買飯糰、咖啡" },
+                    { time: "05:30", loc: "進航廈", note: "06:00 前一定要進航廈！託運行李、過安檢" },
+                    { time: "06:30", loc: "最後掃貨", note: "JCB 貴賓室喝咖啡、免稅店最後衝刺" },
+                    { time: "07:55", loc: "CI0223 起飛", note: "3 小時飛行時間。機上吃正餐" },
+                    { time: "10:55", loc: "抵達台北松山", note: "通關、領行李" },
+                    { time: "11:30", loc: "松山機場 → 國光客運", note: "一樓客運乘車處" },
+                    { time: "12:05", loc: "搭國光 1840", note: "松山 → 桃園機場 (¥180)" },
+                    { time: "13:20", loc: "桃園 → 台中", note: "國光 1860 (¥220)。約 75 分鐘" },
+                    { time: "14:35", loc: "台中火車站 → 市政府", note: "搭計程車或捷運" },
+                    { time: "15:20", loc: "新烏日 → 烏日", note: "JR 區間車" },
+                    { time: "16:40", loc: "回到家了！", note: "18 天日本大冒險完美收尾！🎉" }
+                ]
+            }
+        ];
+
+        // --- FUNCTIONS ---
+
+        function generateTabs() {
+            const tabsContainer = document.getElementById('dayTabs');
+            itineraryData.forEach((item, index) => {
+                const btn = document.createElement('button');
+                btn.className = `whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${index === 0 ? 'bg-sakura-300 text-white shadow-md' : 'bg-white text-slate-500 hover:bg-slate-100'}`;
+                btn.innerText = `Day ${item.day}`;
+                btn.onclick = () => switchDay(index);
+                tabsContainer.appendChild(btn);
+            });
+        }
+
+        function switchDay(index) {
+            // Update Tabs
+            const buttons = document.getElementById('dayTabs').children;
+            for (let i = 0; i < buttons.length; i++) {
+                if (i === index) {
+                    buttons[i].className = 'whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-sakura-300 text-white shadow-md transform scale-105';
+                    buttons[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    buttons[i].className = 'whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white text-slate-500 hover:bg-slate-100';
+                }
+            }
+
+            renderDayContent(itineraryData[index]);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function createMapLink(location) {
+            return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
+        }
+
+        function renderDayContent(data) {
+            const container = document.getElementById('mainContent');
+            
+            // Generate Notices HTML
+            let noticesHtml = '';
+            if (data.notices && data.notices.length > 0) {
+                noticesHtml = `
+                    <div class="bg-amber-50 border border-amber-100 rounded-2xl p-5 mb-6 shadow-sm">
+                        <h3 class="text-amber-600 font-bold mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            本日重點注意
+                        </h3>
+                        <ul class="space-y-2">
+                            ${data.notices.map(n => `
+                                <li class="flex items-start text-sm">
+                                    <span class="font-bold text-slate-700 mr-2 min-w-[4rem]">${n.title}：</span>
+                                    <span class="text-slate-600">${n.content}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Generate Budget HTML
+            let budgetHtml = '';
+            if (data.budget && data.budget.length > 0) {
+                budgetHtml = `
+                    <div class="bg-white rounded-2xl p-5 mb-6 shadow-sm border border-slate-100">
+                        <h3 class="text-sakura-500 font-bold mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            預估花費
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            ${data.budget.map(b => `
+                                <div class="bg-slate-50 p-3 rounded-lg">
+                                    <div class="text-xs text-slate-500 mb-1">${b.item}</div>
+                                    <div class="font-bold text-slate-800">${b.cost}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Generate Tickets HTML
+            let ticketsHtml = '';
+            if (data.tickets && data.tickets.length > 0) {
+                 ticketsHtml = `
+                    <div class="bg-sky-50 border border-sky-100 rounded-2xl p-5 mb-6 shadow-sm">
+                        <h3 class="text-sky-600 font-bold mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path></svg>
+                            交通票券
+                        </h3>
+                         <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
+                            ${data.tickets.map(t => `<li>${t}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Generate Timeline HTML
+            let timelineHtml = '';
+            if (data.timeline && data.timeline.length > 0) {
+                timelineHtml = `
+                    <div class="relative pl-2">
+                        ${data.timeline.map((item, index) => {
+                            const isLast = index === data.timeline.length - 1;
+                            return `
+                                <div class="relative flex pb-8 ${isLast ? 'last-item' : ''}">
+                                    <div class="timeline-line"></div>
+                                    <div class="flex-shrink-0 w-12 pt-1 text-right mr-4">
+                                        <div class="text-sm font-bold text-slate-900">${item.time}</div>
+                                    </div>
+                                    <div class="relative z-10 w-4 h-4 rounded-full bg-sakura-300 border-2 border-white shadow mt-1.5 flex-shrink-0"></div>
+                                    <div class="flex-grow ml-4">
+                                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 transform transition hover:-translate-y-1 duration-200">
+                                            <div class="flex justify-between items-start mb-2">
+                                                <h4 class="font-bold text-lg text-slate-800">${item.loc}</h4>
+                                                <a href="${createMapLink(item.loc)}" target="_blank" class="text-sky-500 hover:text-sky-600">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                                </a>
+                                            </div>
+                                            <p class="text-sm text-slate-600 leading-relaxed">${item.note}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            }
+
+            container.innerHTML = `
+                <div class="animate-fade-in">
+                    <div class="mb-6">
+                        <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-2 py-1 rounded mb-2">${data.date}</span>
+                        <h2 class="text-2xl font-bold text-slate-800">${data.title}</h2>
+                        <p class="text-slate-500 mt-1">${data.summary}</p>
+                    </div>
+
+                    ${noticesHtml}
+                    ${budgetHtml}
+                    ${ticketsHtml}
+                    
+                    <h3 class="font-bold text-xl mb-6 text-slate-800 pl-2 border-l-4 border-sakura-300">詳細行程</h3>
+                    ${timelineHtml}
+                </div>
+            `;
+        }
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTabs();
+            switchDay(0); // Load Day 1 by default
+        });
+
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
